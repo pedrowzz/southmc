@@ -8,7 +8,7 @@ import wwz.pedro.vital.*;
 import wwz.pedro.vital.Config;
 import wwz.pedro.vital.essencial.GroupManager;
 import wwz.pedro.vital.essencial.ChatListener;
-import wwz.pedro.vital.utils.Messages;
+import wwz.pedro.vital.utills.Messages;
 import wwz.pedro.vital.comandos.AccCommand;
 
 public class BukkitMain extends JavaPlugin {

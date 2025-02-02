@@ -1,13 +1,15 @@
 package wwz.pedro.vital.comandos;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.Bukkit;
+
 import wwz.pedro.vital.BukkitMain;
-import wwz.pedro.vital.utils.Messages;
-import wwz.pedro.vital.essencial.*;
+import wwz.pedro.vital.essencial.GroupManager;
+import wwz.pedro.vital.essencial.Tag;
+import wwz.pedro.vital.utills.Messages;
 
 public class AccCommand implements CommandExecutor {
 

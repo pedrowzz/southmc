@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import wwz.pedro.vital.BukkitMain;
 import wwz.pedro.vital.Database;
-import wwz.pedro.vital.utils.Messages;
+import wwz.pedro.vital.utills.Messages;
 
 public class GroupManager {
 

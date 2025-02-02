@@ -1,4 +1,4 @@
-package wwz.pedro.vital.utils;
+package wwz.pedro.vital.utills;
 
 import org.bukkit.ChatColor;
 
