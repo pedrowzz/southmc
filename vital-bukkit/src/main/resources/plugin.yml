@@ -1,0 +1,6 @@
+name: Vital
+version: 1.0
+description: Base principal para plugins do pedrowwz
+author: pedrowwz
+main: wwz.pedro.vital.BukkitMain
+api-version: 1.8.8
