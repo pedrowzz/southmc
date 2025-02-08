@@ -21,10 +21,7 @@ public class AccCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (!sender.hasPermission(Messages.PERMISSAO_DE_COMANDOS_PERIGOSOS)) {
-            sender.sendMessage(Messages.MENSAGEM_SEM_PERM);
-            return true;
-        }
+        // Removed the check for Player instance
 
         if (args.length < 4) {
             sender.sendMessage(Messages.MENSAGEM_USO_COMANDO);
@@ -57,6 +54,17 @@ public class AccCommand implements CommandExecutor {
         if (target == null) {
             sender.sendMessage(Messages.MENSAGEM_JOGADOR_NAO_ENCONTRADO);
             return true;
+        }
+
+        // Permission check for players
+        if (sender instanceof Player) {
+            Player player = (Player) sender;
+            if (!GroupManager.hasPermission(player, Messages.PERMISSAO_DE_COMANDOS_PERIGOSOS)) {
+                sender.sendMessage(Messages.MENSAGEM_SEM_PERM);
+                return true;
+            }
+        } else {
+            // Console always has permission
         }
 
         GroupManager.setTemporaryTag(target, tag, duration, plugin);

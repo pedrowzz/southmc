@@ -4,3 +4,8 @@ description: Base principal para plugins do pedrowwz
 author: pedrowwz
 main: wwz.pedro.vital.BukkitMain
 api-version: 1.8.8
+commands:
+  acc:
+    description: Comando para adicionar tags temporárias aos jogadores.
+    usage: /acc <nick> add <tag> <tempo|eterno>
+    permission: vital.staffb

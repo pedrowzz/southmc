@@ -5,8 +5,8 @@ import org.bukkit.ChatColor;
 public class Messages {
 
     public static final String MENSAGEM_SEM_PERM = ChatColor.RED + "You do not have permission to use this command.";
-    public static final String MENSAGEM_TAG_INVALIDA = ChatColor.RED + "Invalid tag.";
-    public static final String MENSAGEM_TEMPO_INVALIDO = ChatColor.RED + "Invalid duration.";
+    public static final String MENSAGEM_TAG_INVALIDA = ChatColor.RED + "O cargo é invalido ou inexistente.";
+    public static final String MENSAGEM_TEMPO_INVALIDO = ChatColor.RED + "O tempo estipulado foge dos níveis computacionais do servidor.";
     public static final String MENSAGEM_JOGADOR_NAO_ENCONTRADO = ChatColor.RED + "Player not found.";
     public static final String MENSAGEM_TAG_ADICIONADA = ChatColor.GREEN + "Tag %tag% added to %player% %duration%.";
     public static final String MENSAGEM_TAG_EXPIRADA = ChatColor.RED + "Your temporary tag has expired.";
