@@ -1,32 +1,40 @@
 package wwz.pedro.vital;
 
-import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
-import wwz.pedro.vital.comandos.*;
-import wwz.pedro.vital.essencial.*;
-import wwz.pedro.vital.*;
-import wwz.pedro.vital.Config;
-import wwz.pedro.vital.essencial.GroupManager;
+
+import lombok.Getter;
+import wwz.pedro.vital.commands.BukkitCommandFramework;
 import wwz.pedro.vital.essencial.ChatListener;
-import wwz.pedro.vital.utills.Messages;
-import wwz.pedro.vital.comandos.AccCommand;
+import wwz.pedro.vital.essencial.GroupManager;
 
 public class BukkitMain extends JavaPlugin {
-    @Getter
-    private Config configManager;
+  @Getter
+  private Config configManager;
+  private BukkitCommandFramework commandFramework;
 
-    @Override
-    public void onEnable() {
-        this.configManager = new Config(this);
-        getLogger().info("§aAs bibliotecas vitais foram iniciadas corretamente, e os recursos foram iniciados.");
-        GroupManager.setup(this);
-        getServer().getPluginManager().registerEvents(new ChatListener(), this);
-        getCommand("acc").setExecutor(new AccCommand(this));
-    }
+  @Override
+  public void onEnable() {
+    this.configManager = new Config(this);
+    getLogger().info("§aAs bibliotecas vitais foram iniciadas corretamente, e os recursos foram iniciados.");
+    GroupManager.setup(this);
+    getServer().getPluginManager().registerEvents(new ChatListener(), this);
 
-    @Override
-    public void onDisable() {
-        getLogger().info("§cAs bibliotecas vitais foram desabilitadas corretamente, e os recursos foram salvos com sucesso.");
-        GroupManager.close();
-    }
+    // Initialize and register commands
+    commandFramework = new BukkitCommandFramework(this);
+    loadCommands();
+  }
+
+  private void loadCommands() {
+    commandFramework.loadCommands(this, "wwz.pedro.vital.commands.register");
+  }
+
+  @Override
+  public void onDisable() {
+    getLogger().info("§cAs bibliotecas vitais foram desabilitadas corretamente, e os recursos foram salvos com sucesso.");
+    GroupManager.close();
+  }
+
+  public static BukkitMain getInstance() {
+    return getPlugin(BukkitMain.class);
+  }
 }

@@ -1,4 +1,4 @@
-package wwz.pedro.vital.comandos;
+package wwz.pedro.vital.commands;
 
 import java.util.Arrays;
 import java.util.Comparator;
