@@ -219,6 +219,7 @@ public class BukkitCommandFramework {
       for (Class<?> clazz : classes) {
         if (CommandClass.class.isAssignableFrom(clazz) && !clazz.isInterface()) {
           try {
+            // Use the no-argument constructor
             CommandClass commandClass = (CommandClass) clazz.newInstance();
             registerCommands(commandClass);
           } catch (InstantiationException | IllegalAccessException e) {

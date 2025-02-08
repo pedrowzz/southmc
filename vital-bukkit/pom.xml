@@ -31,7 +31,7 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
-                            <outputFile>server/plugins/${project.artifactId}-${project.version}.jar</outputFile>
+                            <outputFile>/workspaces/southmc/imanity/plugins/${project.artifactId}-${project.version}.jar</outputFile>
 <!--                            disable this in case shade decides to fuck you over and delete essential libraries -->
                             <minimizeJar>true</minimizeJar>
                             <filters>

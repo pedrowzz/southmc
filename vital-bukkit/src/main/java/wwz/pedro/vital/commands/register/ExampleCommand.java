@@ -9,8 +9,8 @@ public class ExampleCommand implements CommandClass {
 
   @Command(
       name = "example",
-      aliases = {"ex"},
-      groupsToUse = {Rank.MEMBER},
+      aliases = {"spop"},
+      groupsToUse = {Rank.ADMINISTRATOR},
       description = "An example command",
       usage = "/example"
   )

@@ -25,7 +25,7 @@
               <goal>shade</goal>
             </goals>
             <configuration>
-              <outputFile>server/plugins/${project.artifactId}-${project.version}.jar</outputFile>
+              <outputFile>/workspaces/southmc/imanity/plugins/${project.artifactId}-${project.version}.jar</outputFile>
               <minimizeJar>true</minimizeJar>
               <filters>
                 <filter>
