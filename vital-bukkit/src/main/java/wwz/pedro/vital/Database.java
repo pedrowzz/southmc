@@ -65,7 +65,7 @@ public class Database {
                         "asn VARCHAR(255), " +
                         "ultimo_login TIMESTAMP, " +
                         "primeiro_login TIMESTAMP," +
-                        "conta_tipo VARCHAR(255))" // Added account type
+                        "conta_tipo VARCHAR(255))"
         )) {
             ps.executeUpdate();
             plugin.getLogger().info("Tabela criada/verificada com sucesso!");
@@ -87,7 +87,6 @@ public class Database {
         }
     }
 
-    // Example methods to set and get player data
     public void setPlayerData(String uuid, String nick, String pais, String estado, String cidade, Rank cargo, String asn, Instant ultimoLogin, Instant primeiroLogin, String contaTipo) {
         try (PreparedStatement ps = connection.prepareStatement(
                 "INSERT INTO player_data (uuid, nick, pais, estado, cidade, cargo, asn, ultimo_login, primeiro_login, conta_tipo) " +
@@ -100,21 +99,21 @@ public class Database {
             ps.setString(3, pais);
             ps.setString(4, estado);
             ps.setString(5, cidade);
-            ps.setString(6, cargo.name());
+            ps.setString(6, (cargo != null) ? cargo.name() : null);
             ps.setString(7, asn);
             ps.setTimestamp(8, (ultimoLogin != null) ? Timestamp.from(ultimoLogin) : null);
             ps.setTimestamp(9, (primeiroLogin != null) ? Timestamp.from(primeiroLogin) : null);
-            ps.setString(10, contaTipo); // Set account type
+            ps.setString(10, contaTipo);
 
             ps.setString(11, nick);
             ps.setString(12, pais);
             ps.setString(13, estado);
             ps.setString(14, cidade);
-            ps.setString(15, cargo.name());
+            ps.setString(15, (cargo != null) ? cargo.name() : null);
             ps.setString(16, asn);
             ps.setTimestamp(17, (ultimoLogin != null) ? Timestamp.from(ultimoLogin) : null);
             ps.setTimestamp(18, (primeiroLogin != null) ? Timestamp.from(primeiroLogin) : null);
-            ps.setString(19, contaTipo); // Update account type
+            ps.setString(19, contaTipo);
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -124,11 +123,12 @@ public class Database {
     }
 
     public ResultSet getPlayerData(String uuid) {
-        try (PreparedStatement ps = connection.prepareStatement("SELECT * FROM player_data WHERE uuid = ?")) {
+        try {
+            PreparedStatement ps = connection.prepareStatement("SELECT * FROM player_data WHERE uuid = ?");
             ps.setString(1, uuid);
             return ps.executeQuery();
         } catch (SQLException e) {
-            plugin.getLogger().severe("Failed to get player data!");
+            plugin.getLogger().severe("Falha ao obter dados do jogador: " + e.getMessage());
             e.printStackTrace();
             return null;
         }

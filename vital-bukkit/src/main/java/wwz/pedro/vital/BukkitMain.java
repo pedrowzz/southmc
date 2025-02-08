@@ -6,35 +6,45 @@ import lombok.Getter;
 import wwz.pedro.vital.commands.BukkitCommandFramework;
 import wwz.pedro.vital.essencial.ChatListener;
 import wwz.pedro.vital.essencial.GroupManager;
-
 public class BukkitMain extends JavaPlugin {
-  @Getter
-  private Config configManager;
-  private BukkitCommandFramework commandFramework;
+    @Getter
+    private Config configManager;
+    private BukkitCommandFramework commandFramework;
+    private Database database;
+    private static BukkitMain instance;
 
-  @Override
-  public void onEnable() {
-    this.configManager = new Config(this);
-    getLogger().info("§aAs bibliotecas vitais foram iniciadas corretamente, e os recursos foram iniciados.");
-    GroupManager.setup(this);
-    getServer().getPluginManager().registerEvents(new ChatListener(), this);
 
-    // Initialize and register commands
-    commandFramework = new BukkitCommandFramework(this);
-    loadCommands();
-  }
+    @Override
+    public void onEnable() {
+        getLogger().info("§aAs bibliotecas vitais foram iniciadas corretamente, e os recursos foram iniciados.");
+        // Configurações do banco de dados
+        String host = "localhost";
+        int port = 3306;
+        String databaseName = "minecraft";
+        String username = "root";
+        String password = "";
 
-  private void loadCommands() {
-    commandFramework.loadCommands(this, "wwz.pedro.vital.commands.register");
-  }
+        instance = this;
 
-  @Override
-  public void onDisable() {
-    getLogger().info("§cAs bibliotecas vitais foram desabilitadas corretamente, e os recursos foram salvos com sucesso.");
-    GroupManager.close();
-  }
+        // Inicializa a instância do banco de dados
+        database = new Database(this, host, port, databaseName, username, password);
 
-  public static BukkitMain getInstance() {
-    return getPlugin(BukkitMain.class);
-  }
+        // Registra o evento
+        getServer().getPluginManager().registerEvents(new UUIDCollector(this), this);
+        GroupManager.setup(this);
+        getServer().getPluginManager().registerEvents(new ChatListener(), this);
+        commandFramework = new BukkitCommandFramework(this);
+        loadCommands();
+    }
+
+    private void loadCommands() {
+      commandFramework.loadCommands(this, "wwz.pedro.vital.commands.register");
+    }
+
+    public static BukkitMain getInstance() {
+      return instance;
+    }
+    public Database getMySQLDatabase() {
+      return database;
+    }
 }

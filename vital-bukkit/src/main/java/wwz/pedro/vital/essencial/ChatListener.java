@@ -13,9 +13,14 @@ public class ChatListener implements Listener {
   @EventHandler
   public void onPlayerChat(AsyncPlayerChatEvent event) {
     Player player = event.getPlayer();
-    Tag playerTag = GroupManager.getPlayerTag(player);
+    Rank playerRank = GroupManager.getPlayerRank(player.getName());
     PrefixType prefixType = GroupManager.getPlayerPrefixType(player);
     String message = event.getMessage();
-    event.setFormat(prefixType.getFormatter().format(playerTag) + playerTag.getColor() + player.getName() + " §7» §f" + message);
+    if (playerRank == Rank.MEMBER) {
+      event.setFormat("§7" + player.getName() + " §7» §f" + message);
+    } else {
+      Tag playerTag = GroupManager.getPlayerTag(player);
+      event.setFormat(prefixType.getFormatter().format(playerTag) + playerTag.getColor() + player.getName() + " §7» §f" + message);
+    }
   }
 }
