@@ -7,12 +7,14 @@ import wwz.pedro.vital.commands.BukkitCommandFramework;
 import wwz.pedro.vital.essencial.ChatListener;
 import wwz.pedro.vital.essencial.GroupManager;
 import wwz.pedro.vital.essencial.TabListener;
+import wwz.pedro.vital.essencial.TabUpdateListener;
 public class BukkitMain extends JavaPlugin {
     @Getter
     private Config configManager;
     private BukkitCommandFramework commandFramework;
     private Database database;
     private static BukkitMain instance;
+    private ServerTweaks serverTweaks;
 
 
     @Override
@@ -33,8 +35,10 @@ public class BukkitMain extends JavaPlugin {
         // Registra o evento
         getServer().getPluginManager().registerEvents(new TabListener(), this);
         getServer().getPluginManager().registerEvents(new UUIDCollector(this), this);
+        getServer().getPluginManager().registerEvents(new TabUpdateListener(), this);
         GroupManager.setup(this);
         getServer().getPluginManager().registerEvents(new ChatListener(), this);
+        serverTweaks = new ServerTweaks(this);
         commandFramework = new BukkitCommandFramework(this);
         loadCommands();
     }

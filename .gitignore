@@ -33,9 +33,9 @@ build/
 
 ### VS Code ###
 .vscode/
-imanity
+imanity/
 /workspaces/southmc/zartema/
-zartema
+zartema/
 ### Mac OS ###
 .DS_Store
 

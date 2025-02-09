@@ -2,6 +2,7 @@ package wwz.pedro.vital.essencial;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.net.InetAddress;
 import java.net.URL;
 import java.net.URLConnection;
@@ -17,10 +18,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import com.avaje.ebean.EbeanServer;
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.google.gson.Gson;
-import java.io.StringReader;
 
 import wwz.pedro.vital.BukkitMain;
 import wwz.pedro.vital.Database;
@@ -73,7 +73,7 @@ public class GroupManager {
         String asn = getASN(player);
         Instant ultimoLogin = Instant.now();
         Instant primeiroLogin = getFirstLogin(playerUUID);
-        String contaTipo = isCracked(player) ? "Cracked" : "Original";
+        String contaTipo = isCracked(player) ? "Cracked" : "Premium";
 
         database.setPlayerData(playerUUID.toString(), nick, pais, estado, cidade, cargo, asn, ultimoLogin, primeiroLogin, contaTipo);
 

@@ -34,7 +34,7 @@ public class UUIDCollector implements Listener {
                 String asn = GroupManager.getASN(player);
                 Instant ultimoLogin = Instant.now();
                 Instant primeiroLogin = GroupManager.getFirstLogin(playerUUID);
-                String contaTipo = GroupManager.isCracked(player) ? "Cracked" : "Original";
+                String contaTipo = GroupManager.isCracked(player) ? "Cracked" : "Premium";
 
                 plugin.getLogger().info("Saving player data for " + nick + " (" + playerUUID + ")");
                 plugin.getLogger().info("País: " + pais + ", Estado: " + estado + ", Cidade: " + cidade);
