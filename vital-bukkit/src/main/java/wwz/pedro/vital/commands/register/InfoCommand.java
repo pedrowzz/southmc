@@ -2,9 +2,13 @@ package wwz.pedro.vital.commands.register;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.TimeZone;
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
 import wwz.pedro.vital.BukkitMain;
@@ -54,9 +58,9 @@ public class InfoCommand implements CommandClass {
         }
 
         String targetName = args[0];
-        Player target = Bukkit.getPlayer(targetName);
+        OfflinePlayer target = Bukkit.getOfflinePlayer(targetName);
 
-        if (target == null) {
+        if (target == null || !target.hasPlayedBefore()) {
             sender.sendMessage("§cPlayer not found.");
             return;
         }
@@ -71,6 +75,15 @@ public class InfoCommand implements CommandClass {
                     String nick = rs.getString("nick");
                     String cargo = rs.getString("cargo");
                     String accountType = rs.getString("conta_tipo");
+                    String pais = rs.getString("pais");
+                    String estado = rs.getString("estado");
+                    String cidade = rs.getString("cidade");
+                    String asn = rs.getString("asn");
+                    Timestamp primeiroLogin = rs.getTimestamp("primeiro_login");
+                    Timestamp ultimoLogin = rs.getTimestamp("ultimo_login");
+
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    sdf.setTimeZone(TimeZone.getTimeZone("America/Sao_Paulo"));
 
                     System.out.println("Retrieved from database - UUID: " + playerUUID + ", Nick: " + nick + ", Cargo: " + cargo + ", Account Type: " + accountType);
 
@@ -79,6 +92,12 @@ public class InfoCommand implements CommandClass {
                     sender.sendMessage("§aNick: §f" + nick);
                     sender.sendMessage("§aCargo: §f" + cargo);
                     sender.sendMessage("§aAccount Type: §f" + accountType);
+                    sender.sendMessage("§aPaís: §f" + pais);
+                    sender.sendMessage("§aEstado: §f" + estado);
+                    sender.sendMessage("§aCidade: §f" + cidade);
+                    sender.sendMessage("§aASN: §f" + asn);
+                    sender.sendMessage("§aPrimeiro Login: §f" + (primeiroLogin != null ? sdf.format(primeiroLogin) : "N/A"));
+                    sender.sendMessage("§aÚltimo Login: §f" + (ultimoLogin != null ? sdf.format(ultimoLogin) : "N/A"));
 
                 } else {
                     sender.sendMessage("§cNo data found for player " + targetName + " (ResultSet is empty).");

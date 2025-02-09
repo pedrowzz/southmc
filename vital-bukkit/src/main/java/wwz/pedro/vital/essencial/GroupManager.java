@@ -19,6 +19,8 @@ import org.bukkit.scheduler.BukkitRunnable;
 import com.avaje.ebean.EbeanServer;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.Gson;
+import java.io.StringReader;
 
 import wwz.pedro.vital.BukkitMain;
 import wwz.pedro.vital.Database;
@@ -143,8 +145,7 @@ public class GroupManager {
         try {
             InetAddress ipAddress = player.getAddress().getAddress();
             String ip = ipAddress.getHostAddress();
-            String apiKey = "YOUR_API_KEY";
-            URL url = new URL("https://ipapi.co/" + ip + "/json/?key=" + apiKey);
+            URL url = new URL("https://ipapi.co/" + ip + "/json/");
             URLConnection connection = url.openConnection();
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             StringBuilder json = new StringBuilder();
@@ -154,7 +155,7 @@ public class GroupManager {
             }
             reader.close();
 
-            JsonObject jsonObject = JsonParser.parseString(json.toString()).getAsJsonObject();
+            JsonObject jsonObject = JsonParser.parseReader(new StringReader(json.toString())).getAsJsonObject();
             return jsonObject.get("country_name").getAsString();
         } catch (Exception e) {
             return "Unknown";
@@ -165,8 +166,7 @@ public class GroupManager {
         try {
             InetAddress ipAddress = player.getAddress().getAddress();
             String ip = ipAddress.getHostAddress();
-            String apiKey = "YOUR_API_KEY";
-            URL url = new URL("https://ipapi.co/" + ip + "/json/?key=" + apiKey);
+            URL url = new URL("https://ipapi.co/" + ip + "/json/");
             URLConnection connection = url.openConnection();
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             StringBuilder json = new StringBuilder();
@@ -176,7 +176,7 @@ public class GroupManager {
             }
             reader.close();
 
-            JsonObject jsonObject = JsonParser.parseString(json.toString()).getAsJsonObject();
+            JsonObject jsonObject = new Gson().fromJson(json.toString(), JsonObject.class);
             return jsonObject.get("region").getAsString();
         } catch (Exception e) {
             return "Unknown";
@@ -187,8 +187,7 @@ public class GroupManager {
         try {
             InetAddress ipAddress = player.getAddress().getAddress();
             String ip = ipAddress.getHostAddress();
-            String apiKey = "YOUR_API_KEY";
-            URL url = new URL("https://ipapi.co/" + ip + "/json/?key=" + apiKey);
+            URL url = new URL("https://ipapi.co/" + ip + "/json/");
             URLConnection connection = url.openConnection();
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             StringBuilder json = new StringBuilder();

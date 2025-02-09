@@ -1,5 +1,9 @@
 package wwz.pedro.vital.commands.register;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.UUID;
+
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -49,14 +53,37 @@ public class AccCommand implements CommandClass {
                 return;
             }
 
-            if (target.equals(player)) {
+            if (playerRank.getId() >= Rank.ADMINISTRATOR.getId()) {
+                // Staff viewing another player's info
+                UUID playerUUID = target.getUniqueId();
+                ResultSet rs = GroupManager.getDatabase().getPlayerData(playerUUID.toString());
+
+                try {
+                    if (rs != null) {
+                        if (rs.next()) {
+                            String nick = rs.getString("nick");
+                            String cargo = rs.getString("cargo");
+                            String accountType = rs.getString("conta_tipo");
+
+                            sender.sendMessage("§aInformações de " + targetName + ":");
+                            sender.sendMessage("§aUUID: §f" + playerUUID);
+                            sender.sendMessage("§aNick: §f" + nick);
+                            sender.sendMessage("§aCargo: §f" + cargo);
+                            sender.sendMessage("§aAccount Type: §f" + accountType);
+
+                        } else {
+                            sender.sendMessage("§cNo data found for player " + targetName + ".");
+                        }
+                    } else {
+                        sender.sendMessage("§cNo data found for player " + targetName + ".");
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    sender.sendMessage("§cAn error occurred while retrieving player data.");
+                }
+            } else {
                 // Member viewing their own info
                 sender.sendMessage("§aSeu nick: §f" + sender.getNick());
-            } else if (playerRank.getId() >= Rank.ADMINISTRATOR.getId()) {
-                // Admin viewing another player's info
-                sender.sendMessage("§aNick de " + targetName + ": §f" + target.getName() + " §aRank: §f" + GroupManager.getPlayerRank(target.getName()).getDisplayName());
-            } else {
-                sender.sendMessage("§c/acc <nick>");
             }
         } else if (args.length >= 3 && playerRank.getId() >= Rank.ADMINISTRATOR.getId()) {
             // Admin usage: /acc <nick> add/remove <tag> [tempo/eterno]

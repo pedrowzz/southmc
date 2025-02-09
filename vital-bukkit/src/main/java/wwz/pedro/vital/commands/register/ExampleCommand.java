@@ -8,7 +8,7 @@ import wwz.pedro.vital.essencial.Rank;
 public class ExampleCommand implements CommandClass {
 
   @Command(
-      name = "example",
+      name = "s",
       aliases = {"spop"},
       groupsToUse = {Rank.ADMINISTRATOR},
       description = "An example command",

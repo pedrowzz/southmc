@@ -35,7 +35,7 @@ public class Database {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             String url = String.format(
-                    "jdbc:mysql://%s:%d/%s?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC",
+                    "jdbc:mysql://%s:%d/%s?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Sao_Paulo",
                     host, port, database
             );
 
