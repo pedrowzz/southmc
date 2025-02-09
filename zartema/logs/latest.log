@@ -44,3 +44,9 @@
 [12:37:26] [Netty Worker IO Thread #4/INFO] [EaglercraftXBungee]: [/[0:0:0:0:0:0:0:1]:45262]: Logged in as 'pedro'
 [12:37:26] [Netty Worker IO Thread #4/INFO]: [/[0:0:0:0:0:0:0:1]:45262|pedro] -> UpstreamBridge has connected
 [12:37:26] [Netty Worker IO Thread #4/INFO]: [pedro|/[0:0:0:0:0:0:0:1]:45262] <-> ServerConnector [lobby] has connected
+[12:40:08] [Netty Worker IO Thread #4/INFO]: [pedro] disconnected with: Proxy lost connection to server.
+[12:40:08] [Netty Worker IO Thread #4/INFO]: [/[0:0:0:0:0:0:0:1]:45262|pedro] <-> DownstreamBridge <-> [lobby] has disconnected
+[12:40:08] [Netty Worker IO Thread #4/INFO]: [/[0:0:0:0:0:0:0:1]:45262|pedro] -> UpstreamBridge has disconnected
+[12:40:43] [Netty Worker IO Thread #2/INFO]: [eufake] disconnected with: Proxy lost connection to server.
+[12:40:43] [Netty Worker IO Thread #2/INFO]: [/[0:0:0:0:0:0:0:1]:48098|eufake] <-> DownstreamBridge <-> [lobby] has disconnected
+[12:40:43] [Netty Worker IO Thread #2/INFO]: [/[0:0:0:0:0:0:0:1]:48098|eufake] -> UpstreamBridge has disconnected
