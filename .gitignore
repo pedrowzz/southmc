@@ -35,6 +35,7 @@ build/
 .vscode/
 imanity
 /workspaces/southmc/zartema/
+zartema
 ### Mac OS ###
 .DS_Store
 
