@@ -4,8 +4,8 @@ listener_01:
   max_players: 60
   tab_list: GLOBAL_PING
   default_server: lobby
-  force_default_server: false
-  forward_ip: false
+  force_default_server: true
+  forward_ip: true
   forward_ip_header: X-Real-IP
   redirect_legacy_clients_to: 'null'
   server_icon: server-icon.png

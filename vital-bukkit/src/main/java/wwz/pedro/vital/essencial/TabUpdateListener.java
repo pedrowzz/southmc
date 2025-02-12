@@ -5,6 +5,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
 import wwz.pedro.vital.events.PlayerUpdateTablistEvent;
+import wwz.pedro.vital.BukkitMain;
 
 public class TabUpdateListener implements Listener {
 
@@ -13,5 +14,7 @@ public class TabUpdateListener implements Listener {
         Player player = event.getPlayer();
         TabListener tabListener = new TabListener();
         tabListener.updatePlayerListName(player);
+        PrefixListener prefixListener = new PrefixListener(BukkitMain.getInstance());
+        prefixListener.updatePrefix(player);
     }
 }

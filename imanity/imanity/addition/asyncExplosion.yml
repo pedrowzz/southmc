@@ -1,0 +1,3 @@
+enabled: true
+blockSearchThreads: 2
+entityAffectionThreads: 4

@@ -1,8 +1,8 @@
-server_connect_timeout: 5000
+server_connect_timeout: 10000
 enforce_secure_profile: false
-remote_ping_cache: -1
 forge_support: true
 player_limit: 100
+log_pings: true
 permissions:
   default:
   - bungeecord.command.server
@@ -17,19 +17,20 @@ permissions:
   - bungeecord.command.find
 timeout: 30000
 log_commands: false
-network_compression_threshold: 256
 online_mode: false
+disabled_commands:
+- disabledcommandhere
 servers:
   lobby:
     motd: '&1Just another Zartema - Forced Host'
-    address: localhost:25565
+    address: mushmc.com:25565
     restricted: false
 listeners:
 - query_port: 25577
   motd: '&1Another Bungee server'
   tab_list: GLOBAL_PING
   query_enabled: false
-  proxy_protocol: false
+  proxy_protocol: true
   forced_hosts:
     pvp.md-5.net: pvp
   ping_passthrough: false
@@ -40,16 +41,15 @@ listeners:
   max_players: 1
   tab_size: 60
   force_default_server: false
-prevent_proxy_connections: false
-ip_forward: false
 remote_ping_timeout: 5000
+ip_forward: true
+network_compression_threshold: 256
 reject_transfers: false
-disabled_commands:
-- disabledcommandhere
+remote_ping_cache: -1
 connection_throttle: 4000
 stats: 18dc0e0a-5ea3-439f-bb68-7f3e044fcd7a
 connection_throttle_limit: 3
 groups:
   md_5:
   - admin
-log_pings: true
+prevent_proxy_connections: false

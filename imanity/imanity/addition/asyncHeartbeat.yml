@@ -1,0 +1,6 @@
+
+# Should enable async heartbeat?
+enabled: true
+
+# The frequency to ask client for heartbeat (in ticks)
+frequency: 40

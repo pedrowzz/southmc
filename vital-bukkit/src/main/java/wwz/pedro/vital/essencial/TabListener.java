@@ -1,7 +1,7 @@
 package wwz.pedro.vital.essencial;
 
-import net.minecraft.server.v1_8_R3.ChatComponentText;
-import net.minecraft.server.v1_8_R3.PacketPlayOutPlayerListHeaderFooter;
+import java.lang.reflect.Field;
+
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -9,7 +9,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-import java.lang.reflect.Field;
+import net.minecraft.server.v1_8_R3.ChatComponentText;
+import net.minecraft.server.v1_8_R3.PacketPlayOutPlayerListHeaderFooter;
 
 public class TabListener implements Listener {
 
@@ -17,13 +18,13 @@ public class TabListener implements Listener {
     private final String footer = "\n§fVisite nosso site: §asouthmc.com\n";
 
     @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent event) {
+    public void onPlayerJoinEvent(PlayerJoinEvent event) {
         sendTabList(event.getPlayer());
         updatePlayerListName(event.getPlayer());
     }
 
     @EventHandler
-    public void onPlayerQuit(PlayerQuitEvent event) {
+    public void onPlayerQuitEvent(PlayerQuitEvent event) {
         // Optional: Clear the player's list name on quit
         event.getPlayer().setPlayerListName(null);
     }
@@ -34,7 +35,7 @@ public class TabListener implements Listener {
         Tag playerTag = GroupManager.getPlayerTag(player);
 
         String formattedName;
-        if (playerRank == Rank.MEMBER) {
+        if (playerTag == Tag.MEMBER) {
             formattedName = "§7" + player.getName();
         } else {
             formattedName = prefixType.getFormatter().format(playerTag) + playerTag.getColor() + player.getName();

@@ -1,0 +1,21 @@
+
+# Should ghost patcher enabled? (true/false)
+enabled: true
+
+# The thresholds of mining speed to update blocks depends on ping. (in milliseconds)
+pingThresholds:
+  100: 150
+  200: 300
+  300: 600
+
+# The minimum sample size to update blocks
+minSampleSize: 3
+
+# The maximum sample size to update blocks
+maxSampleSize: 5
+
+# The radius to update blocks
+updateRadius: 2
+
+# The interval to update blocks (in ticks)
+updateInterval: 50

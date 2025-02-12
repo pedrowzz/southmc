@@ -1,0 +1,62 @@
+
+# Should the Raytrace anti-xray be enabled?
+# When enabled, async anti-xray will be enabled as well,
+# and mode will be set to HIDE_EXPOSED.
+enabled: true
+
+# The maximum distance to raytrace, any ore beyond this distance will not be visible.
+maxDistance: 64
+
+# The amount of threads to use for raytracing.
+threads: 4
+
+# The fake ores to spawn randomly spread in chunks.
+fakeOres:
+
+  # Should the fake ores be enabled?
+  enabled: true
+
+  # The minimum amount of fake ore veins to spawn per chunk.
+  minVeinsPerChunk: 10
+
+  # The maximum amount of fake ore veins to spawn per chunk.
+  maxVeinsPerChunk: 30
+
+  # The minimum amount of fake ores to spawn per vein.
+  minOresPerVein: 1
+
+  # The maximum amount of fake ores to spawn per vein.
+  maxOresPerVein: 8
+
+  # The fake ores to spawn randomly spread in the overworld.
+  overworld:
+  - type: EMERALD_ORE
+    maxY: 32
+    weight: 5.0
+  - type: DIAMOND_ORE
+    maxY: 16
+    weight: 15.0
+  - type: REDSTONE_ORE
+    maxY: 24
+    weight: 35.0
+  - type: LAPIS_ORE
+    maxY: 24
+    weight: 20.0
+  - type: GOLD_ORE
+    maxY: 32
+    weight: 40.0
+  - type: IRON_ORE
+    maxY: 64
+    weight: 60.0
+  - type: COAL_ORE
+    maxY: 64
+    weight: 80.0
+
+  # The fake ores to spawn randomly spread in the nether.
+  nether:
+  - type: QUARTZ_ORE
+    maxY: 128
+    weight: 100.0
+
+  # The fake ores to spawn randomly spread in the end.
+  end: []

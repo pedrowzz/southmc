@@ -1,0 +1,27 @@
+{
+  "name": "slowdown",
+  "behaviours": [
+    {
+      "id": "hitbase",
+      "type": "hitBase",
+      "damagerMonsterType": "ALL",
+      "sprintingSlowdown": "1.0",
+      "horizontalFriction": "9.2",
+      "damagerType": "ALL",
+      "vertical": "0.34",
+      "extraHorizontal": "0.17",
+      "knockbackEnchantMul": "1.0",
+      "verticalLimit": "0.6",
+      "extraVertical": "0.045",
+      "horizontal": "0.56",
+      "verticalFriction": "8.6",
+      "damagerProjectileType": "ALL",
+      "stopSprinting": "true"
+    },
+    {
+      "id": "hitDelay",
+      "type": "hitDelay",
+      "hitDelay": "20"
+    }
+  ]
+}

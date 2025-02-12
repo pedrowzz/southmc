@@ -15,11 +15,11 @@ public class ChatListener implements Listener {
     Player player = event.getPlayer();
     Rank playerRank = GroupManager.getPlayerRank(player.getName());
     PrefixType prefixType = GroupManager.getPlayerPrefixType(player);
+    Tag playerTag = GroupManager.getPlayerTag(player);
     String message = event.getMessage();
-    if (playerRank == Rank.MEMBER) {
+    if (playerTag == Tag.MEMBER) {
       event.setFormat("§7" + player.getName() + " §7» §f" + message);
     } else {
-      Tag playerTag = GroupManager.getPlayerTag(player);
       event.setFormat(prefixType.getFormatter().format(playerTag) + playerTag.getColor() + player.getName() + " §7» §f" + message);
     }
   }

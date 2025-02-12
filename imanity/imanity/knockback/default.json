@@ -1,0 +1,53 @@
+{
+  "name": "default",
+  "behaviours": [
+    {
+      "id": "1",
+      "type": "hitBase",
+      "damagerMonsterType": "ALL",
+      "sprintingSlowdown": "0.65",
+      "horizontalFriction": "9.0",
+      "damagerType": "ALL",
+      "vertical": {
+        "value": "0.35",
+        "modifiers": [
+          {
+            "id": "vertical",
+            "type": "ground",
+            "multiply": "1.03"
+          }
+        ]
+      },
+      "extraHorizontal": "0.18",
+      "knockbackEnchantMul": "1.0",
+      "verticalLimit": "1.0",
+      "extraVertical": "0.03",
+      "horizontal": {
+        "value": "0.56",
+        "modifiers": [
+          {
+            "id": "horizontal",
+            "type": "ground",
+            "multiply": "0.92"
+          }
+        ]
+      },
+      "verticalFriction": "8.0",
+      "damagerProjectileType": "ALL",
+      "stopSprinting": "true"
+    },
+    {
+      "id": "2",
+      "type": "hitDelay",
+      "hitDelay": "19"
+    },
+    {
+      "id": "3",
+      "type": "projectile",
+      "projectileType": "POTION",
+      "offset": "-16.0",
+      "throwSpeedMultiplier": "0.54",
+      "fallSpeed": "0.1"
+    }
+  ]
+}

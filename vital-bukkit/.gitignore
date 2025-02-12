@@ -33,9 +33,11 @@ build/
 
 ### VS Code ###
 .vscode/
-imanity/
-/workspaces/southmc/zartema/
+!imanity/
+!/workspaces/southmc/zartema/
+!zartema/
 zartema/
+eaglerproxy-master/
 ### Mac OS ###
 .DS_Store
 

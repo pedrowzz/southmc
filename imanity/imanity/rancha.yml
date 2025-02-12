@@ -1,0 +1,178 @@
+# -------------------------------------------------------
+# Imanity Software © 2019 ~ 2021
+#  
+# Welcome to the Premium configuration of ImanitySpigot3! (premium.yml)
+# If you need help with the configuration or have any question related to ImanitySpigot,
+# join our discord. Happy Configuration!
+#  
+# Discord: https://go.imanity.dev/discord
+# -------------------------------------------------------
+
+# The server name or version (this appear when you ping the server or in the server list)
+serverName: ImanitySpigot3
+
+# Custom /version message
+# Placeholder available:
+#    <version> - Current version of the spigot
+version:
+- '&7&m*---------------&f &b&lImanity - Software &f&7&m---------------*'
+- ' '
+- '&fThis Server is currently running &bImanitySpigot3 Premium'
+- '&fVersion: &b<version>'
+- ' '
+- '&7&m*--------------------------------------------------*'
+
+# Custom /tps command
+# Placeholders available:
+#    <tps5s> - TPS the last 5 seconds
+#    <tps10s> - TPS the last 10 seconds
+#    <tps1m> - TPS the last minute
+#    <tps5m> - TPS the last 5 minutes
+#    <tps15m> - TPS the last 15 minutes
+#    <fullServerTick> - Time that the server take to run 1 tick in ms
+#    <worldTick> - Time that the worlds take to run 1 tick in ms
+#    <currentOnline> - Number of players currently online
+#    <maxOnline> - Number of the max slots of the server
+#    <uptime> - Time since the server is started
+#    <entities> - Entities count of the the current world of the player or the first world if executed by console
+#    <loadedChunks> - Chunks count of the current world of the player or the first world if executed by console
+#    <world> - Current world name of the player or the first world if executed by console
+#    <usedMemory> - Memory currently used by the server
+#    <maxMemory> - All the memory available for the server
+#    <freeMemory> - Memory free for the server
+#    <availableProcessors> - Processors available for the server
+#    <processCpuLoad> - CPU process loaded
+#    <rightArrow> - Basically just: »
+#    <leftArrow> - Basically just: «
+tpsCommand:
+- '&7&m*---------------&f &b&lImanity - Software &f&7&m---------------*'
+- ' '
+- '&bTPS &7(5s, 10s, 1m, 5m, 15m) &8<rightArrow> <tps5s>, <tps10s>, <tps1m>, <tps5m>,
+  <tps15m>'
+- '&bLogic Tick Time &8<rightArrow> <fullServerTick>'
+- '&bWorld Tick Time &8<rightArrow> <worldTick>'
+- '&bOnline Players &8<rightArrow> &a<currentOnline>&7/&a<maxOnline>'
+- '&bUptime &8<rightArrow> &a<uptime>'
+- '&bEntities &8<rightArrow> &f<entities>'
+- '&bChunks Loaded &8<rightArrow> &f<loadedChunks> &7(<world>)'
+- '&bMemory &8<rightArrow> &a<usedMemory>/<maxMemory>'
+- '&bCPU Information &8<rightArrow>'
+- '&9  Cores &8<rightArrow> &f<availableProcessors> Threads'
+- '&9  Loads &8<rightArrow> &f<processCpuLoad>'
+- ' '
+- '&7&m*--------------------------------------------------*'
+
+# Custom /ping (target) command
+# Placeholders available:
+#    <player> - Target of the command
+#    <ping> - Ping of the target
+pingCommand:
+- '&7[&bPing&7] &b<player>&f''s ping is &b<ping>ms'
+
+# Custom /ping command
+# Placeholders available:
+#    <player> - Player name of the command executor
+#    <ping> - Ping of the player that executed the command
+pingSelfCommand:
+- '&7[&bPing&7] &fYour ping is &b<ping>ms'
+
+# Custom no permission message, this is showed when you do not have access to built-in commands such as /tps...
+noPermissionMessage:
+- '&cI''m sorry, but you do not have permission to perform this command. Please contact
+  the server administrators if you believe that this is in error.'
+
+# Custom message when a pearl is refunded by the custom pearl system of ImanitySpigot
+pearlRefundMessage:
+- '&cYour Pearl has been refund.'
+
+# Custom message when you change the slots of the server thanks to /setmaxslots (slots) command
+# Placeholder available:
+#   <slots> - New slots of the server
+setMaxSlotsMessage:
+- '&bMax players &fupdated to §b<slots> slots§f.'
+
+# This section allow you to change the color of the warnings mainly for the placeholders of /tps command
+colorWarning:
+  highWarningColor: '&c'
+  mediumWarningColor: '&e'
+  noWarningColor: '&a'
+
+# This section allow you to highly customize your /plugins command
+pluginsCommand:
+
+  # Placeholders available:
+  #   <count> - Number of plugins on the server
+  #   <plugins> - All plugins, based on 'pluginFormat' & 'pluginSeparator'
+  #   <newline> - Separate the message in a new line
+  pluginMessage:
+  - '&bPlugins &f(<count>): <plugins>'
+
+  # Placeholders available:
+  #   <color> - Prefix color based on 'pluginEnableColor' if the plugin is enable, else 'pluginDisableColor'
+  #   <name> - Name of the plugin
+  #   <main> - Main of the plugin
+  #   <website> - Website of the plugin
+  #   <description> - description of the plugin
+  #   <prefix> - Prefix of the plugin
+  #   <authors> - Authors of the plugin
+  #   <fullname> - Fullname of the plugin
+  #   <database> - Database of the plugin
+  #   <depends> - Dependencies of the plugin
+  #   <loadsbefore> - Plugins loaded before the plugin
+  #   <loadorder> - Load order of the plugin
+  #   <version> - Version of the plugin
+  #   <enable> - Is the plugin enable?
+  #   <newline> - Separate the message in a new line
+  pluginFormat: <color><name> &7(&b<version>&7)
+
+  # Placeholders available:
+  #   <newline> - Separate the message in a new line
+  pluginSeparator: '&f, '
+  pluginEnableColor: '&a'
+  pluginDisableColor: '&c'
+
+# This section allow you to custom the messages of the MobAI command
+mobAI:
+
+  # Placeholders available:
+  #   <state> - State of the MobAI after the command has been executed, placeholder configurable below
+  mobAIMessage:
+  - The &bMobAI &fis now <state>&f.
+  mobAIStatePlaceholderEnable: '&aenable'
+  mobAIStatePlaceholderDisable: '&cdisable'
+
+# Lag Spike Logger
+# Whenever a lag spike were detected this feature will be able to store current timing data and show warning to moderators & Log it to a file
+# Giving you the ability to found lag spike and check timing in realtime & Save it logged to see the frequency of the lag spikes
+lagSpikeLogging:
+
+  # Should Lag spike logger be enabled?
+  # Whenever a lag spike were detected this feature will be able to show warning to moderators
+  # And Log it to a file
+  enabled: true
+
+  # Should moderators receive the warning whenever lag spike were detected?
+  # To determine who is a moderator, the player most have the permission 'imanity.lagspike.log'
+  moderatorWarning: true
+
+  # Should the lag spike log storing into a file while detected?
+  # The log file will be stored at lagspike folder
+  logToFile: false
+
+  # Maximum Lag spike log file allowed to generate per minute
+  # This value is to prevent file spams.
+  logFileRate: 10
+
+  # The Tick Time limit to log the lag spike
+  # The current tick time has to at least surpass this limit to log it
+  # Time Unit is Milli Seconds
+  loggingTickTimeLimit: 100
+
+  # The Tick Time limit to log the timing when lag spike were detected
+  # The total tick time most surpass this limit to include in the lag spike log
+  # Time Unit is Milli Seconds
+  logTimingTotalLimit: 1
+
+  # The Customization for Alert Message when moderatorWarning option is enabled
+  alertMessage:
+  - '&c&lLAG SPIKE &8> &7Tick Time: &f<tickTime>ms &7Timestamp: &f<timestamp> &e<timing>'

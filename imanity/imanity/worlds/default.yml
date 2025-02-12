@@ -1,0 +1,372 @@
+# -------------------------------------------------------
+# Imanity Software © 2019 ~ 2024
+#  
+# Welcome to the world configuration of ImanitySpigot3! (default.yml)
+# As you can see, there's tons to configure. Some options may impact gameplay, so use
+# with caution, and make sure you know what each option does before configuring.
+# If you need help with the configuration or have any question related to ImanitySpigot,
+# join our discord. Happy Configuration!
+#  
+# Discord: https://go.imanity.dev/discord
+# -------------------------------------------------------
+
+# In vanilla arrow, it always has a randomness value being applied to it trajectory.
+# Which could potentially break some experience in terms of combat.
+# You can increase it for more randomness or set to 0 to completely disable it.
+arrowTrajectoryRandomness: 1.0
+
+# In vanilla fishing hook, it always has a randomness value being applied to it trajectory.
+# Which could potentially break some experience in terms of combat.
+# You can increase it for more randomness or set to 0 to completely disable it.
+fishingHookTrajectoryRandomness: 1.0
+
+# In vanilla enderpearl, it always has a randomness value being applied to it trajectory.
+# Which could potentially break some experience in terms of combat.
+# You can increase it for more randomness or set to 0 to completely disable it.
+enderPearlTrajectoryRandomness: 1.0
+
+# In vanilla potion, it always has a randomness value being applied to it trajectory.
+# Which could potentially break some experience in terms of combat.
+# You can increase it for more randomness or set to 0 to completely disable it.
+potionTrajectoryRandomness: 1.0
+
+# In vanilla snow ball, it always has a randomness value being applied to it trajectory.
+# Which could potentially break some experience in terms of combat.
+# You can increase it for more randomness or set to 0 to completely disable it.
+snowBallTrajectoryRandomness: 1.0
+
+# In vanilla egg, it always has a randomness value being applied to it trajectory.
+# Which could potentially break some experience in terms of combat.
+# You can increase it for more randomness or set to 0 to completely disable it.
+eggTrajectoryRandomness: 1.0
+
+# Do you want to disable falling block physics?
+disableFallingBlocksPhysics: false
+
+# Should allowed generation of different types of stones? (Granite, Diorite, Andesite...)
+differentVariantStoneGeneration: true
+
+# Should cooldown hoppers when they are full?
+cooldownHopperWhenFull: true
+
+# Should unload chunks?
+doChunkUnload: true
+
+# Should we do chunk autosave?
+# This is different from the doChunkUnload option,
+# If this is disabled, chunks can still be unloaded,
+# But they won't be autosaved with a period of time.
+doChunkAutosave: true
+
+# Should we count any kind of entity for entity spawning limit?
+countAllMobsForSpawning: false
+
+# How many chunk generates per tick are allowed?
+# If you don't have Async Chunk enabled
+# This will impact performance a lot
+
+# Set to negative value for unlimited.
+maxChunkGeneratePerTick: 10
+
+# The rate to tick per chunk
+# Value: 0-1
+chunkTickRate: 0.85
+
+# Should block operation be enabled?
+# Block operation is a part of world ticking.
+# It will randomly find tick-able blocks in each chunks to operate them.
+# Such as leaves decay, fire spread, and grass spread etc are being worked in this section.
+#  
+# But at the same time it is very performance consuming.
+# If your server doesn't need this vanilla behaviour, We highly suggest to disable it
+# Especially for servers such as Practice, MiniGames... it is unnecessary.
+blockOperation: true
+
+# The maximum line length of a sign
+# If the line length is more than this value, it will be cut off.
+# <=0 to disable the feature.
+maxSignLineLength: 80
+
+# Should we strip formatting from player's sign update?
+signStripFormatting: true
+
+# We've re-enabled the auto save chunks cap that has been disabled by Spigot
+# Which we think it's make sense to have it capped
+maxAutoSaveChunksPerTick: 24
+
+# Prevent queueing auto save works when the amount of current queue is more than specific amount
+maxQueuedSizeAutoSave: 60
+
+# The is the value to determine how long a chunk takes to tick may be higher then average in chunk analyzer
+# Which might have the potential cause the server lag
+# Unit is milli seconds
+# (Chunk analyzer is a feature of Premium Plan, It's useless if you don't have the feature)
+potentialLagChunkTickTime: 2.0
+
+# This section allow you to configure the MobStacker settings
+# MobStacker is a feature that allow you to stack mobs together
+# So that you can have less entities in the world and then better performance
+# This is very useful for servers such as SkyBlock or Faction that run huge mob farms
+mobStacker:
+  enabled: false
+  onlyStackFromSpawner: false
+  stackRadius: 5.0
+  maxStackAmount: 50
+  ticksToStack: 100
+  ignoreEntityType:
+  - HORSE
+  - VILLAGER
+  - WOLF
+
+# The section that allow you to customize item merging range for specific types
+# If there is no types specify here it will select the itemMerge range from spigot.yml
+itemMergeRange:
+  cactus: 12.0
+
+# The better alternative of Spigot's anti xray
+# This is a feature that allow you to hide ores from players using xray
+# This implementation will not cause any performance impact.
+asyncAntiXray:
+
+  # Should enable async anti-xray?
+  # Note: This option will override the anti-xray option in spigot.yml.
+  enabled: true
+
+  # The amount of threads to use for anti xray.
+  threads: 2
+
+  # The mode of the anti-xray.
+  # HIDE_EXPOSED - Will hide the exposed ores.
+  # REPLACE_ALL - Will replace all stone blocks with random ores.
+  mode: HIDE_EXPOSED
+  hiddenBlocks:
+  - COAL_ORE
+  - IRON_ORE
+  - GOLD_ORE
+  - REDSTONE_ORE
+  - DIAMOND_ORE
+  - LAPIS_ORE
+  - EMERALD_ORE
+  - CHEST
+  replacementBlocks:
+  - STONE
+
+  # The maximum Y level for anti-xray to work.
+  maxY: 64
+
+# Configurable options for the explosions
+explosion:
+
+  # Should explosion check block density? (Vanilla behaviour)
+  # If you set this to false, explosion entity damage will completely ignore block density,
+  # Which means entity explosive damage will be consistent,
+  # No matter if players are behind an obsidian or not.
+  shouldCheckBlockDensity: true
+
+  # Should explosion block destruction range be constant?
+  # Vanilla behaviour is that explosion block destruction range has a randomness value,
+  # Which could potentially break some experience in terms of combat.
+  constantExplosionRange: false
+
+# Here you can toggle the generation of specific biomes
+# This option is really powerful for custom world generation
+biomes:
+  biomeOceans: true
+  biomePlains: true
+  biomeRoofedForest: true
+  biomeMushroomIsland: true
+  biomeSwampland: true
+  biomeDesert:
+    enabled: true
+    desertHills: true
+  biomeExtremeHills:
+    enabled: true
+    extremeHillsPlus: true
+  biomeForest:
+    enabled: true
+    forestHills: true
+  biomeTaiga:
+    enabled: true
+    taigaHills: true
+  biomeJungle:
+    enabled: true
+    jungleHills: true
+  biomeBirchForest:
+    enabled: true
+    birchForestHills: true
+  biomeColdTaiga:
+    enabled: true
+    coldTaigaHills: true
+  biomeMegaTaiga:
+    enabled: true
+    megaTaigaHills: true
+  biomeSavanna:
+    enabled: true
+    savannaPlateau: true
+  biomeMesa:
+    enabled: true
+    mesaPlateauF: true
+    mesaPlateau: true
+  biomeIce:
+    icePlains: true
+    iceMountains: true
+
+# Configurable options for Sugarcane Generation
+sugarCane:
+
+  # The Rate for sugarcane to generate
+  sugarCaneRate: 10
+
+  # The Minimum Height for sugarcane to generate
+  minHeight: 2
+
+  # The Maximum Height for sugarcane to generate
+  maxHeight: 5
+
+# Configurable options for Cave Generation
+caves:
+
+  # The Rate for cave to generate
+  caveGenerateRate: 12
+
+  # The Rate for Large Cave to generate
+  largeCaveGenerateRate: 20
+
+  # The Minimum Height for cave to generate
+  caveMinHeight: 8
+
+  # The Maximum Height for cave to generate
+  caveMaxHeight: 120
+
+# Custom Block Ruleset
+# The replacement of the old custom ores
+customBlockRuleSet:
+
+  # Should the world generation be using custom block ruleset?
+  # If this is enabled the server will ignore custom settings from vanilla minecraft.
+  enabled: true
+
+  # Ruleset
+  # material = The Material Type of the block
+  # toReplace = The target location must be this specific type in order to generate
+  # data = The Type Data of the Block
+  # veinGenerateRate = The Chance of a vein to generate
+  # maxSizePerVein = Max Block amount per vein
+  # veinPerChunk = The amount of vein to generate per chunk
+  # minHeight = Minimum Y Level of the block to generate
+  # maxHeight = Maximum Y Level of the block to generate
+  ruleset:
+  - blockData:
+      material: DIRT
+      data: 0
+    toReplace: STONE
+    veinGenerateRate: 100.0
+    maxSizePerVein: 33
+    veinsPerChunk: 10
+    minHeight: 0
+    maxHeight: 256
+  - blockData:
+      material: GRAVEL
+      data: 0
+    toReplace: STONE
+    veinGenerateRate: 100.0
+    maxSizePerVein: 33
+    veinsPerChunk: 8
+    minHeight: 0
+    maxHeight: 256
+  - blockData:
+      material: STONE
+      data: 1
+    toReplace: STONE
+    veinGenerateRate: 100.0
+    maxSizePerVein: 33
+    veinsPerChunk: 10
+    minHeight: 0
+    maxHeight: 80
+  - blockData:
+      material: STONE
+      data: 3
+    toReplace: STONE
+    veinGenerateRate: 100.0
+    maxSizePerVein: 33
+    veinsPerChunk: 10
+    minHeight: 0
+    maxHeight: 80
+  - blockData:
+      material: STONE
+      data: 5
+    toReplace: STONE
+    veinGenerateRate: 100.0
+    maxSizePerVein: 33
+    veinsPerChunk: 10
+    minHeight: 0
+    maxHeight: 80
+  - blockData:
+      material: COAL_ORE
+      data: 0
+    toReplace: STONE
+    veinGenerateRate: 100.0
+    maxSizePerVein: 17
+    veinsPerChunk: 20
+    minHeight: 0
+    maxHeight: 128
+  - blockData:
+      material: IRON_ORE
+      data: 0
+    toReplace: STONE
+    veinGenerateRate: 100.0
+    maxSizePerVein: 9
+    veinsPerChunk: 20
+    minHeight: 0
+    maxHeight: 64
+  - blockData:
+      material: GOLD_ORE
+      data: 0
+    toReplace: STONE
+    veinGenerateRate: 100.0
+    maxSizePerVein: 9
+    veinsPerChunk: 2
+    minHeight: 0
+    maxHeight: 32
+  - blockData:
+      material: REDSTONE_ORE
+      data: 0
+    toReplace: STONE
+    veinGenerateRate: 100.0
+    maxSizePerVein: 8
+    veinsPerChunk: 8
+    minHeight: 0
+    maxHeight: 16
+  - blockData:
+      material: DIAMOND_ORE
+      data: 0
+    toReplace: STONE
+    veinGenerateRate: 100.0
+    maxSizePerVein: 8
+    veinsPerChunk: 1
+    minHeight: 0
+    maxHeight: 16
+  - blockData:
+      material: LAPIS_ORE
+      data: 0
+    toReplace: STONE
+    veinGenerateRate: 100.0
+    maxSizePerVein: 7
+    veinsPerChunk: 1
+    minHeight: 16
+    maxHeight: 16
+
+# World Modification for region specifically
+# x, z, and range unit is per-block
+# Existing modification types:
+# biomes - Change specific region to specific biome
+# removeRivers - Remove Rivers from specific region
+# removeLakes - Remove Water Lakes from specific region
+regions:
+- enabled: false
+  x: 0
+  z: 0
+  range: 2
+  modifications:
+  - type: biome
+    biome: PLAINS

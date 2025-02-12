@@ -6,6 +6,7 @@ import lombok.Getter;
 import wwz.pedro.vital.commands.BukkitCommandFramework;
 import wwz.pedro.vital.essencial.ChatListener;
 import wwz.pedro.vital.essencial.GroupManager;
+import wwz.pedro.vital.essencial.PrefixListener;
 import wwz.pedro.vital.essencial.TabListener;
 import wwz.pedro.vital.essencial.TabUpdateListener;
 public class BukkitMain extends JavaPlugin {
@@ -36,6 +37,7 @@ public class BukkitMain extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new TabListener(), this);
         getServer().getPluginManager().registerEvents(new UUIDCollector(this), this);
         getServer().getPluginManager().registerEvents(new TabUpdateListener(), this);
+        getServer().getPluginManager().registerEvents(new PrefixListener(this), this);
         GroupManager.setup(this);
         getServer().getPluginManager().registerEvents(new ChatListener(), this);
         serverTweaks = new ServerTweaks(this);

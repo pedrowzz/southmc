@@ -1,0 +1,19 @@
+
+# Should enable redstone limiter?
+# This is OFF by default.
+enabled: false
+
+# How many redstone updates can occur per tick?
+maxRedstonePerTick: 100
+
+# How many piston push updates can occur per tick?
+maxPistonPerTick: 100
+
+# How many hopper push updates can occur per tick?
+maxHopperPerTick: 100
+
+# How many dispenser dispense events can occur per tick?
+maxDispenserPerTick: 100
+
+# How many dropper dispense events can occur per tick?
+maxDropperPerTick: 100
