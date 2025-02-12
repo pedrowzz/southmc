@@ -33,9 +33,7 @@ build/
 
 ### VS Code ###
 .vscode/
-!imanity/
-!/workspaces/southmc/zartema/
-!zartema/
+imanity/
 zartema/
 eaglerproxy-master/
 ### Mac OS ###
