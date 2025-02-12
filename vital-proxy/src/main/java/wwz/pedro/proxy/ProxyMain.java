@@ -1,4 +1,4 @@
-package org.akadia.template;
+package wwz.pedro.proxy;
 
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.ProxyServer;
@@ -23,7 +23,7 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.util.concurrent.TimeUnit;
 
-public class Main extends Plugin implements Listener {
+public class ProxyMain extends Plugin implements Listener {
     private static Configuration configuration;
 
     @Override
@@ -31,7 +31,6 @@ public class Main extends Plugin implements Listener {
         getLogger().info("Yay! It loads!");
         PluginManager pm = getProxy().getPluginManager();
         pm.registerListener(this, this);
-        pm.registerCommand(this, new Lobby());
 
         TaskScheduler scheduler = getProxy().getScheduler();
         scheduler.runAsync(this, () -> getLogger().info("Hello from Runnable"));

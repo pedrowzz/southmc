@@ -1,2 +1,0 @@
-# bungee-plugin-maven-template
- 

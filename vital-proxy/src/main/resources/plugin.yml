@@ -1,5 +1,5 @@
 name: ${project.name}
-main: org.akadia.template.Main
+main: wwz.pedro.proxy.ProxyMain
 version: ${project.version}
-author: akadia
+author: pedrowwz
 description: ${project.description}

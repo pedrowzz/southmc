@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://www.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.akadia</groupId>
-    <artifactId>bungee-plugin-maven-template</artifactId>
-    <name>Template</name>
+    <groupId>wwz.pedro</groupId>
+    <artifactId>vital-proxy</artifactId>
+    <name>proxy</name>
     <version>0.0.1</version>
     <packaging>jar</packaging>
-    <url>https://akadia.org</url>
+    <url>https://github.com/pedrowzz</url>
 
-    <description>Template for Bungee plugin and built with Maven.</description>
+    <description>Projeto vital para o funcionamento do proxy</description>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -25,19 +25,18 @@
         </repository>
     </repositories>
 
-
     <dependencies>
         <dependency>
             <groupId>net.md-5</groupId>
             <artifactId>bungeecord-api</artifactId>
-            <version>1.16-R0.4</version>
+            <version>1.20-R0.2</version>
             <type>jar</type>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>net.md-5</groupId>
             <artifactId>bungeecord-api</artifactId>
-            <version>1.16-R0.4</version>
+            <version>1.20-R0.2</version>
             <type>javadoc</type>
             <scope>provided</scope>
         </dependency>
@@ -86,8 +85,7 @@
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
                             <transformers>
-                                <transformer
-                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <manifestEntries>
                                         <Implementation-Title>${project.artifactId}</Implementation-Title>
                                         <Implementation-Version>${project.version}</Implementation-Version>
@@ -98,10 +96,19 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <outputDirectory>/workspaces/southmc/zartema/plugins</outputDirectory>
+                    <finalName>${project.artifactId}-${project.version}</finalName>
+                </configuration>
+            </plugin>
         </plugins>
         <resources>
             <resource>
-                <directory>src/main/resources/</directory>
+                <directory>src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
         </resources>
